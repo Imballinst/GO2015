@@ -1,0 +1,27 @@
+application: ganesha-open-2015
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /assets/css
+  static_dir: assets/css
+- url: /assets/img
+  static_dir: assets/img
+- url: /assets/img/favicon.ico
+  static_files: assets/img/favicon.ico
+  upload: assets/img/favicon.ico
+- url: /assets/fonts
+  static_files: assets/fonts
+  upload: assets/fonts
+- url: /assets/js
+  static_dir: assets/js
+- url: /.*
+  script: ganesha-open-2015.application
+  
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest
