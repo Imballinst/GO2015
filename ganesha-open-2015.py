@@ -7,7 +7,14 @@ import logging
 
 from google.appengine.ext import ndb
 
-from lib import About
+from lib import TentangKami
+from lib import JadwalNasional
+from lib import JadwalRecurve
+from lib import JadwalCompound
+from lib import HasilNasional
+from lib import HasilRecurve
+from lib import HasilCompound
+from lib import Kontak
 
 import jinja2
 import webapp2
@@ -38,5 +45,12 @@ class MainPage(webapp2.RequestHandler):
 	
 application = webapp2.WSGIApplication([
 	('/', MainPage),
-	('/about.html', About.About),
+	('/tentang-kami.html', TentangKami.TentangKami),
+	('/jadwal-nasional.html', JadwalNasional.JadwalNasional),
+	('/jadwal-recurve.html', JadwalRecurve.JadwalRecurve),
+	('/jadwal-compound.html', JadwalCompound.JadwalCompound),
+	('/hasil-nasional.html', HasilNasional.HasilNasional),
+	('/hasil-recurve.html', HasilRecurve.HasilRecurve),
+	('/hasil-compound.html', HasilCompound.HasilCompound),
+	('/kontak.html', Kontak.Kontak),
 ], debug=True)

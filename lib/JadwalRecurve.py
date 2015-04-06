@@ -22,12 +22,12 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 	extensions=['jinja2.ext.autoescape'],
 	autoescape=True)
 
-# Class About
+# Class JadwalRecurve
 
-class About(webapp2.RequestHandler):
+class JadwalRecurve(webapp2.RequestHandler):
 	def get(self):
 		# When the page first loads, null template
 		template_values = {}
 		
-		template = JINJA_ENVIRONMENT.get_template('/about.html')
+		template = JINJA_ENVIRONMENT.get_template('/jadwal-recurve.html')
 		self.response.write(template.render(template_values))

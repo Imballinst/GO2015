@@ -5,16 +5,33 @@ api_version: 1
 threadsafe: true
 
 handlers:
+- url: /assets/css/(.*\.map)
+  static_files: assets/css/\1
+  upload: assets/css/(.*\.map)
+  mime_type: application/x-css-map
+- url: /assets/fonts/(.*\.eot)
+  static_files: assets/fonts/\1
+  upload: assets/fonts/(.*\.eot)
+  mime_type: application/vnd.ms-fontobject
+- url: /assets/fonts/(.*\.woff)
+  static_files: assets/fonts/\1
+  upload: assets/fonts/(.*\.woff)
+  mime_type: application/font-woff
+- url: /assets/fonts/(.*\.woff2)
+  static_files: assets/fonts/\1
+  upload: assets/fonts/(.*\.woff2)
+  mime_type: application/font-woff2
+- url: /assets/fonts/(.*\.ttf)
+  static_files: assets/fonts/\1
+  upload: assets/fonts/(.*\.ttf)
+  mime_type: application/x-font-truetype
+- url: /assets/img/favicon.ico
+  static_files: assets/img/favicon.ico
+  upload: assets/img/favicon.ico
 - url: /assets/css
   static_dir: assets/css
 - url: /assets/img
   static_dir: assets/img
-- url: /assets/img/favicon.ico
-  static_files: assets/img/favicon.ico
-  upload: assets/img/favicon.ico
-- url: /assets/fonts
-  static_files: assets/fonts
-  upload: assets/fonts
 - url: /assets/js
   static_dir: assets/js
 - url: /.*
