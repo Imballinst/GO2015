@@ -63,9 +63,9 @@ class MainPage(webapp2.RequestHandler):
             jkt_dt = utc_dt.astimezone(jkt)
             
             # Insert to list
-            titleList.insert(0, post.title)
-            contentList.insert(0, post.content)
-            datetimeList.insert(0, jkt_dt)
+            titleList.append(post.title)
+            contentList.append(post.content)
+            datetimeList.append(jkt_dt)
             
 		# Loads the page
         template_values = {
