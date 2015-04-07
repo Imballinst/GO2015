@@ -15,6 +15,8 @@ from lib import HasilNasional
 from lib import HasilRecurve
 from lib import HasilCompound
 from lib import Kontak
+from lib import Blog
+from lib import Admin
 
 import jinja2
 import webapp2
@@ -31,15 +33,25 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 	extensions=['jinja2.ext.autoescape'],
 	autoescape=True)
 
+# Pre-defined variables
+
+DEFAULT_BLOG_NAME = 'blogGaneshaOpen'
+
 # Class MainPage
 
 class MainPage(webapp2.RequestHandler):
-	def get(self):
-		# When the page first loads, null template
-		template_values = {}
-		
-		template = JINJA_ENVIRONMENT.get_template('index.html')
-		self.response.write(template.render(template_values))
+    def get(self):
+        # Variables
+        blog_name = DEFAULT_BLOG_NAME
+        posts = None
+        
+		# Loads the page
+        template_values = {
+            'posts': posts,
+        }
+        
+        template = JINJA_ENVIRONMENT.get_template('index.html')
+        self.response.write(template.render(template_values))
 
 # List of HTML files and classes implemented into them
 	
@@ -53,4 +65,5 @@ application = webapp2.WSGIApplication([
 	('/hasil-recurve.html', HasilRecurve.HasilRecurve),
 	('/hasil-compound.html', HasilCompound.HasilCompound),
 	('/kontak.html', Kontak.Kontak),
+    ('/admin/dashboard.html', Admin.Admin),
 ], debug=True)

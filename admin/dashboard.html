@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+	
+	<script language="javascript" type="text/javascript" src="../assets/js/jquery.min.js"></script>
+	<script language="javascript" type="text/javascript" src="../assets/js/bootstrap.min.js"></script>
+	
+	<title>
+		Admin Dashboard
+	</title>
+</head>
+<body>
+	<div class="page-header">
+		<h1>Ganesha Open 2015<small> National Indoor Archery Tournament</small></h1>
+	</div>
+	<ul class="nav nav-tabs">
+		<li role="presentation" class="active"><a href="../">Halaman Utama</a></li>
+		<li role="presentation"><a href="../tentang-kami.html">Tentang GO</a></li>
+		<li role="presentation" class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="" role="button"aria-expanded="false">Jadwal Pertandingan<span class="caret"></span></a>
+			<ul class="dropdown-menu" role="menu">
+				<li role="presentation"><a href="../jadwal-nasional.html">Nasional</a></li>
+				<li role="presentation"><a href="../jadwal-recurve.html">Recurve</a></li>
+				<li role="presentation"><a href="../jadwal-compound.html">Compound</a></li>
+			</ul>
+		</li>
+		<li role="presentation" class="dropdown">
+			<a class="dropdown-toggle" data-toggle="dropdown" href="" role="button"aria-expanded="false">Hasil Pertandingan<span class="caret"></span></a>
+			<ul class="dropdown-menu" role="menu">
+				<li role="presentation"><a href="../hasil-nasional.html">Nasional</a></li>
+				<li role="presentation"><a href="../hasil-recurve.html">Recurve</a></li>
+				<li role="presentation"><a href="../hasil-compound.html">Compound</a></li>
+			</ul>
+		</li>
+		<li role="presentation"><a href="../kontak.html">Kontak Kami</a></li>
+	</ul>
+    <div class="container">
+        <h1>Dashboard</h1>
+        <form>
+            <div class="form-group">
+                <label for="judulPost">Judul Post</label>
+                <input type="text" class="form-control" id="inputJudul" name="title" placeholder="Ketikkan judul post">
+            </div>
+            <div class="form-group">
+                <label for="kontenPost">Konten Post</label>
+                <textarea class="form-control" id="inputKonten" name="content" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+            <br><br>
+        </form>
+    </div>
+</body>
+</html>
+{% endautoescape %}
