@@ -41,9 +41,15 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class MainPage(webapp2.RequestHandler):
     def get(self):        
+        # Define variables
         Post = Blog.Blog()
         posts = Post.listPosts()
-        returnString = ""
+        count = len(posts)
+        
+        # List
+        titleList = []
+        contentList = []
+        datetimeList = []
         
         # Timezone convertion
         # Set timezone
@@ -52,22 +58,21 @@ class MainPage(webapp2.RequestHandler):
         
         # For post in posts ...
         for post in posts:
-            title = post.title
-            content = post.content
-            
             # Convert timezone
             utc_dt = utc.localize(post.date)
             jkt_dt = utc_dt.astimezone(jkt)
             
-            # Write to time
-            time = jkt_dt
+            # Insert to list
+            titleList.insert(0, post.title)
+            contentList.insert(0, post.content)
+            datetimeList.insert(0, jkt_dt)
             
-            # Hard-coded HTML page
-            returnString = returnString + "<div class=\"col-md-8\">" + title + "</div>" + "<br>"
-        
 		# Loads the page
         template_values = {
-            'returnString': returnString,
+            'count': count,
+            'titleList': titleList,
+            'contentList': contentList,
+            'datetimeList': datetimeList,
         }
         
         template = JINJA_ENVIRONMENT.get_template('index.html')

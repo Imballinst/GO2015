@@ -435,6 +435,10 @@ th {
 
 .row {
 	border: 1px solid;
+    margin-bottom: 20px;
+}
+h2.date {
+    margin-top: 0;
 }
 
 .page-header {
@@ -442,7 +446,7 @@ th {
 }
 /* Personal Styles */
 
-html, body {
+body {
 	width: 100%;
 	background: url("../img/background.jpg");
 	background-size: cover;

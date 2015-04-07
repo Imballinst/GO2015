@@ -38,9 +38,13 @@
 		<li role="presentation"><a href="kontak.html">Kontak Kami</a></li>
 	</ul>
 	<div class="container">
-		<div class="row">
-            {{ returnString }}
-		</div>
+        {% for i in range(count): %}
+            <div class="row">
+                <div class="col-md-12"><h2 class="text-center">{{ titleList[i] }}</h2></div>
+                <div class="col-md-12"><h2 class="text-center date"><small>{{ datetimeList[i].strftime("%d-%m-%Y %H:%M:%S") }}</small></h2></div>
+                <div class="col-md-12"><p>{{ contentList[i] }}</p></div>
+            </div>
+        {% endfor %}
 	</div>
 </body>
 </html>
