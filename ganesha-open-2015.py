@@ -6,6 +6,7 @@ import urllib
 import logging
 
 from google.appengine.ext import ndb
+from datetime import datetime, timedelta
 
 from lib import TentangKami
 from lib import JadwalNasional
@@ -18,6 +19,9 @@ from lib import Kontak
 from lib import Blog
 from lib import Admin
 
+from pytz import timezone
+
+import pytz
 import jinja2
 import webapp2
 
@@ -41,17 +45,29 @@ class MainPage(webapp2.RequestHandler):
         posts = Post.listPosts()
         returnString = ""
         
+        # Timezone convertion
+        # Set timezone
+        jkt = timezone('Asia/Jakarta')
+        utc = timezone('UTC')
+        
         # For post in posts ...
         for post in posts:
             title = post.title
             content = post.content
-            time = post.date
-            logging.info("Sekarang jam ...")
-            logging.info(time)
+            
+            # Convert timezone
+            utc_dt = utc.localize(post.date)
+            jkt_dt = utc_dt.astimezone(jkt)
+            
+            # Write to time
+            time = jkt_dt
+            
+            # Hard-coded HTML page
+            returnString = returnString + "<div class=\"row-md-8\">" + title + "</div>" + "<br>"
         
 		# Loads the page
         template_values = {
-            'posts': posts,
+            'returnString': returnString,
         }
         
         template = JINJA_ENVIRONMENT.get_template('index.html')

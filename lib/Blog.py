@@ -6,7 +6,6 @@ import urllib
 import logging
 
 from google.appengine.ext import ndb
-from pytz import timezone
 
 import jinja2
 import webapp2
@@ -43,19 +42,27 @@ class Post(ndb.Model):
 class Blog(webapp2.RequestHandler):        
     # Get string of posts
     def listPosts(self):
+        # Set variable name
         blog_name = DEFAULT_BLOG_NAME
         
+        # Instantiates a query
         posts_query = Post.query(ancestor=blog_key(blog_name)).order(-Post.date)
+        
+        # Execute the query
         posts = posts_query.fetch(5)
         
         return posts
     
     def insertToDatastore(self, title, content):
+        # Set variable name
         blog_name = DEFAULT_BLOG_NAME
         
+        # Set datastore name
         post = Post(parent=blog_key(blog_name))
         
+        # Input into model's attribute
         post.title = title
         post.content = content
         
+        # Submit
         post.put()
