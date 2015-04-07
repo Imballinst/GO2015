@@ -63,7 +63,7 @@ class MainPage(webapp2.RequestHandler):
             time = jkt_dt
             
             # Hard-coded HTML page
-            returnString = returnString + "<div class=\"row-md-8\">" + title + "</div>" + "<br>"
+            returnString = returnString + "<div class=\"col-md-8\">" + title + "</div>" + "<br>"
         
 		# Loads the page
         template_values = {
