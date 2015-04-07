@@ -6,6 +6,7 @@ import urllib
 import logging
 
 from google.appengine.ext import ndb
+from pytz import timezone
 
 import jinja2
 import webapp2
@@ -47,7 +48,6 @@ class Blog(webapp2.RequestHandler):
         posts_query = Post.query(ancestor=blog_key(blog_name)).order(-Post.date)
         posts = posts_query.fetch(5)
         
-        logging.info(posts)
         return posts
     
     def insertToDatastore(self, title, content):
@@ -58,6 +58,4 @@ class Blog(webapp2.RequestHandler):
         post.title = title
         post.content = content
         
-        logging.info(title)
-        logging.info(content)
         post.put()

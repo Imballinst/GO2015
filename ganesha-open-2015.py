@@ -39,6 +39,15 @@ class MainPage(webapp2.RequestHandler):
     def get(self):        
         Post = Blog.Blog()
         posts = Post.listPosts()
+        returnString = ""
+        
+        # For post in posts ...
+        for post in posts:
+            title = post.title
+            content = post.content
+            time = post.date
+            logging.info("Sekarang jam ...")
+            logging.info(time)
         
 		# Loads the page
         template_values = {

@@ -431,9 +431,6 @@ th {
 /* Modify Bootstrap things */
 .container {
 	margin-top: 20px;
-	border: 1px solid;
-    background-color: white;
-    opacity: 0.75;
 }
 
 .row {
