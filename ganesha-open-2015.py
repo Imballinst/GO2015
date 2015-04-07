@@ -33,17 +33,12 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 	extensions=['jinja2.ext.autoescape'],
 	autoescape=True)
 
-# Pre-defined variables
-
-DEFAULT_BLOG_NAME = 'blogGaneshaOpen'
-
 # Class MainPage
 
 class MainPage(webapp2.RequestHandler):
-    def get(self):
-        # Variables
-        blog_name = DEFAULT_BLOG_NAME
-        posts = None
+    def get(self):        
+        Post = Blog.Blog()
+        posts = Post.listPosts()
         
 		# Loads the page
         template_values = {
@@ -56,7 +51,7 @@ class MainPage(webapp2.RequestHandler):
 # List of HTML files and classes implemented into them
 	
 application = webapp2.WSGIApplication([
-	('/', MainPage),
+	('/', MainPage, Blog),
 	('/tentang-kami.html', TentangKami.TentangKami),
 	('/jadwal-nasional.html', JadwalNasional.JadwalNasional),
 	('/jadwal-recurve.html', JadwalRecurve.JadwalRecurve),

@@ -27,7 +27,6 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 DEFAULT_BLOG_NAME = 'blogGaneshaOpen'
 
 # Blog key
-
 def blog_key(blog_name=DEFAULT_BLOG_NAME):
     return ndb.Key('Blog', blog_name)
 
@@ -40,11 +39,25 @@ class Post(ndb.Model):
 
 # Class Blog
 
-class Blog(webapp2.RequestHandler):    
-    def post(self):
+class Blog(webapp2.RequestHandler):        
+    # Get string of posts
+    def listPosts(self):
         blog_name = DEFAULT_BLOG_NAME
+        
+        posts_query = Post.query(ancestor=blog_key(blog_name)).order(-Post.date)
+        posts = posts_query.fetch(5)
+        
+        logging.info(posts)
+        return posts
+    
+    def insertToDatastore(self, title, content):
+        blog_name = DEFAULT_BLOG_NAME
+        
         post = Post(parent=blog_key(blog_name))
         
-        post.title = self.request.get('title')
-        post.content = self.request.get('content')
+        post.title = title
+        post.content = content
+        
+        logging.info(title)
+        logging.info(content)
         post.put()
