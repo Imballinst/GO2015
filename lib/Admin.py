@@ -59,6 +59,10 @@ class Admin(webapp2.RequestHandler):
             logging.info(passw)
             if ((user == 'panitiago2015') and (passw == 'semangka')):
                 valid = 1
+                Post = Blog.Blog()
+                Post.deleteAllPosts()
+            else:
+                valid = 2
         else:
             title = self.request.get('title')
             content = self.request.get('content')

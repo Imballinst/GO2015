@@ -66,3 +66,7 @@ class Blog(webapp2.RequestHandler):
         
         # Submit
         post.put()
+    
+    def deleteAllPosts(self):
+        # Define variables
+        blog_name = DEFAULT_BLOG_NAME

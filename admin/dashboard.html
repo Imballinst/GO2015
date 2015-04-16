@@ -53,7 +53,10 @@
     <div class="container">
         <h1 class="title">Dashboard</h1>
         
-        {% if valid == 0: %}
+        {% if (valid == 0 or valid == 2): %}
+            {% if valid == 2: %}
+                <p class="text-danger">Masukan salah. Silahkan input lagi.</p>
+            {% endif %}
             <form method="post" action="">
                 <div class="form-group">
                     <label for="username">Username</label>
@@ -90,6 +93,23 @@
                                 <button type="submit" name="submitType" value="submitPost" class="btn btn-default">Submit</button>
                                 <br><br>
                             </form>
+                        </div>
+                    </div> <!-- Add Post Close -->
+                </div>
+            </div>
+            
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#deletePost">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle">
+                                Delete Post
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="deletePost" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <button type="submit" name="submitType" value="deletePost" class="btn btn-default">Delete Posts</button>
                         </div>
                     </div> <!-- Add Post Close -->
                 </div>
