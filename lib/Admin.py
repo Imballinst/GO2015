@@ -62,12 +62,12 @@ class Admin(webapp2.RequestHandler):
         else:
             title = self.request.get('title')
             content = self.request.get('content')
-        
-        # Instantiate Blog class
-        # Post = Blog.Blog()
-        
-        # Insert the attributes to data store
-        # Post.insertToDatastore(title, content)
+            
+            # Instantiate Blog class
+            Post = Blog.Blog()
+            
+            # Insert the attributes to data store
+            Post.insertToDatastore(title, content)
         
         # Reload the page with null template
         template_values = {

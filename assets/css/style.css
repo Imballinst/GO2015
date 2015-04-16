@@ -15,9 +15,8 @@
     background: rgba(255,255,255,0.5);
 }
 
-h2.date {
-    margin-top: 0;
-    margin-bottom: 20px;
+.panel-heading {
+    cursor: pointer;
 }
 
 /* Personal Styles */
@@ -62,3 +61,13 @@ body {
 	
 }
 
+/** Headings **/
+
+h1.title {
+    margin-bottom: 20px;
+}
+
+h2.date {
+    margin-top: 0;
+    margin-bottom: 20px;
+}

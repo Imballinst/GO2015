@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
 	
 	<title>
-		Admin Dashboard
+		Admin Dashboard | Ganesha Open 2015
 	</title>
 </head>
 <body>
@@ -51,7 +51,7 @@
     </nav>
     
     <div class="container">
-        <h1>Dashboard</h1>
+        <h1 class="title">Dashboard</h1>
         
         {% if valid == 0: %}
             <form method="post" action="">
@@ -67,18 +67,33 @@
                 <br><br>
             </form>
         {% else: %}
-            <form method="post" action="">
-                <div class="form-group">
-                    <label for="judulPost">Judul Post</label>
-                    <input type="text" class="form-control" id="inputJudul" name="title" placeholder="Ketikkan judul post">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#addPost">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle">
+                                Add Post
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="addPost" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <form method="post" action="">
+                                <div class="form-group">
+                                    <label for="judulPost">Judul Post</label>
+                                    <input type="text" class="form-control" id="inputJudul" name="title" placeholder="Ketikkan judul post">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kontenPost">Konten Post</label>
+                                    <textarea class="form-control" id="inputKonten" name="content" rows="3"></textarea>
+                                </div>
+                                <button type="submit" name="submitType" value="submitPost" class="btn btn-default">Submit</button>
+                                <br><br>
+                            </form>
+                        </div>
+                    </div> <!-- Add Post Close -->
                 </div>
-                <div class="form-group">
-                    <label for="kontenPost">Konten Post</label>
-                    <textarea class="form-control" id="inputKonten" name="content" rows="3"></textarea>
-                </div>
-                <button type="submit" name="submitType" value="submitPost" class="btn btn-default">Submit</button>
-                <br><br>
-            </form>
+            </div>
         {% endif %}
     </div>
 	
