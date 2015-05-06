@@ -128,7 +128,7 @@ class MainPage(webapp2.RequestHandler):
 application = webapp2.WSGIApplication([
 	('/', MainPage, Blog),
 	('/tentang-kami.html', TentangKami.TentangKami),
-	('/jadwal-nasional.html', JadwalNasional.JadwalNasional),
+	('/jadwal-nasional', JadwalNasional.JadwalNasional),
 	('/jadwal-recurve.html', JadwalRecurve.JadwalRecurve),
 	('/jadwal-compound.html', JadwalCompound.JadwalCompound),
 	('/hasil-nasional.html', HasilNasional.HasilNasional),
