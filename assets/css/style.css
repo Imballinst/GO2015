@@ -1,7 +1,7 @@
 /* Modify Bootstrap things */
 
 .container {
-	margin-top: 20px;
+	margin-top: 80px;
 }
 
 .row {
@@ -23,13 +23,16 @@
 
 body {
 	width: 100%;
-	background: url("../img/background.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
     font-family: "Tahoma", Geneva, sans-serif;
 }
 
 /** Page Navbar **/
+
+.navbar-default {
+    background: #FFB2B2;
+}
 
 .navbar-default .navbar-nav > .active {
     color: #000;

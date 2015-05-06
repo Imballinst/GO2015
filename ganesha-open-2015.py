@@ -47,6 +47,7 @@ class MainPage(webapp2.RequestHandler):
         count = len(posts)
         
         # List
+        postIDList = []
         titleList = []
         contentList = []
         datetimeList = []
@@ -66,6 +67,7 @@ class MainPage(webapp2.RequestHandler):
             titleList.append(post.title)
             contentList.append(post.content)
             datetimeList.append(jkt_dt)
+            postIDList.append(post.key.id())
             
 		# Loads the page
         template_values = {
@@ -73,11 +75,54 @@ class MainPage(webapp2.RequestHandler):
             'titleList': titleList,
             'contentList': contentList,
             'datetimeList': datetimeList,
+            'postIDList': postIDList,
         }
         
         template = JINJA_ENVIRONMENT.get_template('index.html')
         self.response.write(template.render(template_values))
-
+    
+    def post(self, id):
+        # Define variables
+        Post = Blog.Blog()
+        posts = Post.listPosts()
+        count = len(posts)
+        
+        # List
+        postIDList = []
+        titleList = []
+        contentList = []
+        datetimeList = []
+        
+        # Timezone convertion
+        # Set timezone
+        jkt = timezone('Asia/Jakarta')
+        utc = timezone('UTC')
+        
+        # For post in posts ...
+        for post in posts:
+            # Convert timezone
+            utc_dt = utc.localize(post.date)
+            jkt_dt = utc_dt.astimezone(jkt)
+            
+            
+            
+            # Insert to list
+            titleList.append(post.title)
+            contentList.append(post.content)
+            datetimeList.append(jkt_dt)
+            postIDList.append(post.key.id())
+            
+		# Loads the page
+        template_values = {
+            'count': count,
+            'titleList': titleList,
+            'contentList': contentList,
+            'datetimeList': datetimeList,
+            'postIDList': postIDList,
+        }
+        
+        template = JINJA_ENVIRONMENT.get_template('index.html')
+        self.response.write(template.render(template_values))
 # List of HTML files and classes implemented into them
 	
 application = webapp2.WSGIApplication([

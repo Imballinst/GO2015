@@ -49,7 +49,7 @@ class Blog(webapp2.RequestHandler):
         posts_query = Post.query(ancestor=blog_key(blog_name)).order(-Post.date)
         
         # Execute the query
-        posts = posts_query.fetch(5)
+        posts = posts_query.fetch(10)
         
         return posts
     
@@ -67,6 +67,7 @@ class Blog(webapp2.RequestHandler):
         # Submit
         post.put()
     
-    def deleteAllPosts(self):
+    def deletePosts(self, postID):
         # Define variables
         blog_name = DEFAULT_BLOG_NAME
+        
