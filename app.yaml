@@ -34,10 +34,6 @@ handlers:
   static_dir: assets/img
 - url: /assets/js
   static_dir: assets/js
-- url: /(.+)
-  mime_type: text/html
-  static_files: /\jadwal-nasional.html
-  upload: /(.+)
 - url: /.*
   script: ganesha-open-2015.application
   

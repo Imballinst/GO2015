@@ -127,13 +127,13 @@ class MainPage(webapp2.RequestHandler):
 	
 application = webapp2.WSGIApplication([
 	('/', MainPage, Blog),
-	('/tentang-kami.html', TentangKami.TentangKami),
+	('/tentang-kami', TentangKami.TentangKami),
 	('/jadwal-nasional', JadwalNasional.JadwalNasional),
-	('/jadwal-recurve.html', JadwalRecurve.JadwalRecurve),
-	('/jadwal-compound.html', JadwalCompound.JadwalCompound),
-	('/hasil-nasional.html', HasilNasional.HasilNasional),
-	('/hasil-recurve.html', HasilRecurve.HasilRecurve),
-	('/hasil-compound.html', HasilCompound.HasilCompound),
-	('/kontak.html', Kontak.Kontak),
-    ('/admin/dashboard.html', Admin.Admin),
+	('/jadwal-recurve', JadwalRecurve.JadwalRecurve),
+	('/jadwal-compound', JadwalCompound.JadwalCompound),
+	('/hasil-nasional', HasilNasional.HasilNasional),
+	('/hasil-recurve', HasilRecurve.HasilRecurve),
+	('/hasil-compound', HasilCompound.HasilCompound),
+	('/kontak', Kontak.Kontak),
+    ('/admin/dashboard', Admin.Admin),
 ], debug=True)
