@@ -78,7 +78,7 @@ class MainPage(webapp2.RequestHandler):
             'postIDList': postIDList,
         }
         
-        template = JINJA_ENVIRONMENT.get_template('index.html')
+        template = JINJA_ENVIRONMENT.get_template('index')
         self.response.write(template.render(template_values))
     
     def post(self, id):
@@ -121,7 +121,7 @@ class MainPage(webapp2.RequestHandler):
             'postIDList': postIDList,
         }
         
-        template = JINJA_ENVIRONMENT.get_template('index.html')
+        template = JINJA_ENVIRONMENT.get_template('index')
         self.response.write(template.render(template_values))
 # List of HTML files and classes implemented into them
 	
