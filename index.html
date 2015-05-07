@@ -55,14 +55,13 @@
             <div class="row">
                 <div class="col-md-12"><h2 class="text-center">{{ titleList[i] }}</h2></div>
                 <div class="col-md-12"><h2 class="text-center date"><small>{{ datetimeList[i].strftime("%d-%m-%Y %H:%M:%S") }}</small></h2></div>
-                <div class="col-md-12"><p>{{ contentList[i] }} <a href="/?deleteid={{ postIDList[i] }}">tes</a></p> </div>
+                <div class="col-md-12"><p>{{ contentList[i] }} <a href="/redirect?deleteid={{ postIDList[i] }}">tes</a></p> </div>
             </div>
         {% endfor %}
 	</div>
     
     <script language="javascript" type="text/javascript" src="/assets/js/jquery.min.js"></script>
 	<script language="javascript" type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
-    </script>
 </body>
 </html>
 {% endautoescape %}

@@ -16,6 +16,7 @@ from lib import HasilRecurve
 from lib import HasilCompound
 from lib import Kontak
 from lib import Post
+from lib import PostController
 from lib import Admin
 
 from pytz import timezone
@@ -44,13 +45,6 @@ class MainPage(webapp2.RequestHandler):
         postObject = Post.Post()
         posts = postObject.listPosts()
         count = len(posts)
-        
-        # Get Delete ID
-        deleteID = self.request.get('deleteid')
-        
-        # Delete Post with Proper ID
-        if (deleteID != ''):
-            postObject.deletePost(deleteID)
         
         # List
         postIDList = []
@@ -90,7 +84,8 @@ class MainPage(webapp2.RequestHandler):
 # List of HTML files and classes implemented into them
 	
 application = webapp2.WSGIApplication([
-	('/', MainPage, Post),
+	('/', MainPage, Post.Post),
+    ('/redirect', PostController.PostController),
 	('/tentang-kami', TentangKami.TentangKami),
 	('/jadwal/nasional', JadwalNasional.JadwalNasional),
 	('/jadwal/recurve', JadwalRecurve.JadwalRecurve),
