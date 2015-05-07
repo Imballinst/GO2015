@@ -37,10 +37,6 @@ class Post(ndb.Model):
     content = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
 
-# Class Blog
-
-class Blog(webapp2.RequestHandler):        
-    # Get string of posts
     def listPosts(self):
         # Set variable name
         blog_name = DEFAULT_BLOG_NAME
@@ -67,7 +63,12 @@ class Blog(webapp2.RequestHandler):
         # Submit
         post.put()
     
-    def deletePosts(self, postID):
+    def deletePost(self, postID):
         # Define variables
         blog_name = DEFAULT_BLOG_NAME
         
+        # Get the post
+        postID = int(postID)
+        key = blog_key(blog_name)
+        post = Post.get_by_id(postID, parent=key)
+        post.key.delete()

@@ -7,7 +7,7 @@ import logging
 
 from google.appengine.ext import ndb
 
-import Blog
+import Post
 
 import jinja2
 import webapp2
@@ -59,8 +59,6 @@ class Admin(webapp2.RequestHandler):
             logging.info(passw)
             if ((user == 'panitiago2015') and (passw == 'semangka')):
                 valid = 1
-                Post = Blog.Blog()
-                Post.deleteAllPosts()
             else:
                 valid = 2
         else:
@@ -68,10 +66,10 @@ class Admin(webapp2.RequestHandler):
             content = self.request.get('content')
             
             # Instantiate Blog class
-            Post = Blog.Blog()
+            postObject = Post.Post()
             
             # Insert the attributes to data store
-            Post.insertToDatastore(title, content)
+            postObject.insertToDatastore(title, content)
         
         # Reload the page with null template
         template_values = {
