@@ -7,6 +7,7 @@ import logging
 
 from google.appengine.ext import ndb
 
+import CookieManager
 import Post
 
 import jinja2
@@ -59,6 +60,8 @@ class Admin(webapp2.RequestHandler):
             logging.info(passw)
             if ((user == 'panitiago2015') and (passw == 'semangka')):
                 valid = 1
+                f = CookieManager.CookieManager()
+                f.setCookie
             else:
                 valid = 2
         else:

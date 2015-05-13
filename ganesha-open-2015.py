@@ -5,7 +5,7 @@ import cgi
 import urllib
 import logging
 
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from lib import TentangKami
 from lib import JadwalNasional
@@ -21,7 +21,6 @@ from lib import Admin
 
 from pytz import timezone
 
-import pytz
 import jinja2
 import webapp2
 
@@ -56,7 +55,6 @@ class MainPage(webapp2.RequestHandler):
         # Set timezone
         jkt = timezone('Asia/Jakarta')
         utc = timezone('UTC')
-        
         # For post in posts ...
         for post in posts:
             # Convert timezone
