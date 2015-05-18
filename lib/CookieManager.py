@@ -6,6 +6,7 @@ import urllib
 import logging
 
 import Cookie, uuid
+from datetime import datetime, timedelta
 
 import jinja2
 import webapp2
@@ -24,24 +25,27 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 	extensions=['jinja2.ext.autoescape'],
 	autoescape=True)
 
-# Class CookieManager
+c = Cookie.SimpleCookie()
 
-class CookieManager(object):
-    cookie = Cookie.SimpleCookie()
+def setCookieValue():
+    jkt = timezone('Asia/Jakarta')
+    dt = datetime.now(jkt) + timedelta(minutes=5) # Expires in 5 minutes
+    c["expire"] = dt.strftime('%Y-%m-%d %H:%M:%S')
+    return c['expire'].value
     
-    def setCookie():
-        # Timezone convertion
-        # Set timezone
-        jkt = timezone('Asia/Jakarta')
-        expires = datetime.datetime.now(jkt) + timedelta(minutes=5)
-        
-        cookie['session'] = str(uuid.uuid4())
-        cookie['session']['domain'] = 'ganeshaopen15.appspot.com'
-        cookie['session']['path'] = '/'
-        cookie['session']['expires'] = expires.strftime("%a, %d %b %Y %H:%M:%S GMT")
-        
-        logging.info("hehe")
-        logging.info(cookie['session'])
-        logging.info(cookie['session']['domain'])
-        logging.info(cookie['session']['path'])
-        logging.info(cookie['session']['expires'])
+def checkCookie():
+    jkt = timezone('Asia/Jakarta')
+    # Check Null
+    try:
+        cookieDate = datetime.strptime('%Y-%m-%d %H:%M:%S %Z', c["expire"].value)
+        dateNow = datetime.now(jkt)
+        dateNow = dateNow.strftime('%Y-%m-%d %H:%M:%S')
+        if (cookieDate < dateNow):
+            logging.info("Ada cookie")
+            return 1
+        else:
+            logging.info("Udah expire")
+            return 0
+    except KeyError:
+        logging.info("Gak ada cookie")
+        return 0

@@ -33,7 +33,7 @@ DEFAULT_BLOG_NAME = "blogGaneshaOpen"
 
 class Admin(webapp2.RequestHandler):
     def get(self):
-        valid = 0
+        valid = CookieManager.checkCookie()
         
 		# Loads the page
         template_values = {
@@ -60,8 +60,8 @@ class Admin(webapp2.RequestHandler):
             logging.info(passw)
             if ((user == 'panitiago2015') and (passw == 'semangka')):
                 valid = 1
-                f = CookieManager.CookieManager()
-                f.setCookie
+                c = CookieManager.setCookieValue()
+                self.response.set_cookie('expire', c, path='/', secure=True)
             else:
                 valid = 2
         else:
