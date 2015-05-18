@@ -49,3 +49,14 @@ def checkCookie():
     except KeyError:
         logging.info("Gak ada cookie")
         return 0
+        
+# Class CookieManager
+
+class CookieManager:
+    def __init__(self, request):
+        self.username = request['username']
+        self.password = request['password']
+    
+    def printCookie(self):
+        logging.info(self.username)
+        logging.info(self.password)
