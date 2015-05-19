@@ -34,9 +34,13 @@ DEFAULT_BLOG_NAME = "blogGaneshaOpen"
 
 class Admin(webapp2.RequestHandler):
     def get(self):
-        logging.info(self.request.cookies.get('expire'))
-        
-        valid = 0
+        try:
+            exp = self.request.cookies.get('expire')
+            logging.info(exp)
+            
+            valid = CookieManager.checkCookie(exp)
+        except None:
+            valid = 0
         
 		# Loads the page
         template_values = {

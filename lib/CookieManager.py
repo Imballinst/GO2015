@@ -33,14 +33,16 @@ def setCookieValue():
     c["expire"] = dt.strftime('%Y-%m-%d %H:%M:%S')
     return c["expire"].value
     
-def checkCookie():
+def checkCookie(expire):
     jkt = timezone('Asia/Jakarta')
     # Check Null
     try:
-        cookieDate = datetime.strptime('%Y-%m-%d %H:%M:%S', c["expire"].value)
+        cookieDate = datetime.strptime(expire, ('%Y-%m-%d %H:%M:%S'))
         dateNow = datetime.now(jkt)
-        dateNow = dateNow.strftime('%Y-%m-%d %H:%M:%S')
-        if (cookieDate < dateNow):
+        
+        cookieDate = cookieDate.replace(tzinfo=None)
+        dateNow = dateNow.replace(tzinfo=None)
+        if (cookieDate > dateNow):
             logging.info("Ada cookie")
             return 1
         else:
@@ -49,14 +51,3 @@ def checkCookie():
     except KeyError:
         logging.info("Gak ada cookie")
         return 0
-        
-# Class CookieManager
-
-class CookieManager:
-    def __init__(self, request):
-        self.username = request['username']
-        self.password = request['password']
-    
-    def printCookie(self):
-        logging.info(self.username)
-        logging.info(self.password)
