@@ -6,6 +6,7 @@ import urllib
 import logging
 
 from google.appengine.ext import ndb
+from webob import *
 
 import CookieManager
 import Post
@@ -33,7 +34,9 @@ DEFAULT_BLOG_NAME = "blogGaneshaOpen"
 
 class Admin(webapp2.RequestHandler):
     def get(self):
-        valid = CookieManager.checkCookie()
+        logging.info(self.request.cookies.get('expire'))
+        
+        valid = 0
         
 		# Loads the page
         template_values = {
@@ -61,7 +64,7 @@ class Admin(webapp2.RequestHandler):
             if ((user == 'panitiago2015') and (passw == 'semangka')):
                 valid = 1
                 c = CookieManager.setCookieValue()
-                self.response.set_cookie('expire', c, path='/', secure=True)
+                self.response.set_cookie('expire', c)
             else:
                 valid = 2
         else:

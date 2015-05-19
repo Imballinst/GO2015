@@ -31,13 +31,13 @@ def setCookieValue():
     jkt = timezone('Asia/Jakarta')
     dt = datetime.now(jkt) + timedelta(minutes=5) # Expires in 5 minutes
     c["expire"] = dt.strftime('%Y-%m-%d %H:%M:%S')
-    return c['expire'].value
+    return c["expire"].value
     
 def checkCookie():
     jkt = timezone('Asia/Jakarta')
     # Check Null
     try:
-        cookieDate = datetime.strptime('%Y-%m-%d %H:%M:%S %Z', c["expire"].value)
+        cookieDate = datetime.strptime('%Y-%m-%d %H:%M:%S', c["expire"].value)
         dateNow = datetime.now(jkt)
         dateNow = dateNow.strftime('%Y-%m-%d %H:%M:%S')
         if (cookieDate < dateNow):
