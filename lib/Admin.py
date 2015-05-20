@@ -8,8 +8,8 @@ import logging
 from google.appengine.ext import ndb
 from webob import *
 
-import CookieManager
 import Post
+import CookieManager
 
 import jinja2
 import webapp2
@@ -26,22 +26,18 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 	extensions=['jinja2.ext.autoescape'],
 	autoescape=True)
 
-# Pre-defined variables
-
-DEFAULT_BLOG_NAME = "blogGaneshaOpen"
-
 # Class Admin    
 
 class Admin(webapp2.RequestHandler):
     def get(self):
-        try:
-            exp = self.request.cookies.get('expire')
-            logging.info(exp)
-            
+        exp = self.request.cookies.get('expire')
+        logging.info(exp)
+
+        if (exp != None):
             valid = CookieManager.checkCookie(exp)
-        except None:
+        else:
             valid = 0
-        
+
 		# Loads the page
         template_values = {
             'valid': valid,
@@ -50,28 +46,19 @@ class Admin(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('/admin/dashboard.html')
         self.response.write(template.render(template_values))
 
-    # Action to POST request
     def post(self):
-        # Variables
         form = self.request.get('submitType')
-        valid = 0
-        user = None
-        passw = None
         title = None
         content = None
-        
-        if form == 'validasi':
-            user = self.request.get('user')
-            passw = self.request.get('pass')
-            logging.info(user)
-            logging.info(passw)
-            if ((user == 'panitiago2015') and (passw == 'semangka')):
-                valid = 1
-                c = CookieManager.setCookieValue()
-                self.response.set_cookie('expire', c)
-            else:
-                valid = 2
+        exp = self.request.cookies.get('expire')
+        logging.info(exp)
+
+        if (exp != None):
+            valid = CookieManager.checkCookie(exp)
         else:
+            valid = 0
+
+        if form == 'submitPost':
             title = self.request.get('title')
             content = self.request.get('content')
             
@@ -80,8 +67,8 @@ class Admin(webapp2.RequestHandler):
             
             # Insert the attributes to data store
             postObject.insertToDatastore(title, content)
-        
-        # Reload the page with null template
+
+        # Loads the page
         template_values = {
             'valid': valid,
         }

@@ -18,6 +18,7 @@ from lib import Kontak
 from lib import Post
 from lib import PostController
 from lib import Admin
+from lib import AuthController
 
 from pytz import timezone
 
@@ -83,7 +84,7 @@ class MainPage(webapp2.RequestHandler):
 	
 application = webapp2.WSGIApplication([
 	('/', MainPage, Post.Post),
-    ('/redirect', PostController.PostController),
+    ('/post', PostController.PostController),
 	('/tentang-kami', TentangKami.TentangKami),
 	('/jadwal/nasional', JadwalNasional.JadwalNasional),
 	('/jadwal/recurve', JadwalRecurve.JadwalRecurve),
@@ -93,4 +94,5 @@ application = webapp2.WSGIApplication([
 	('/hasil/compound', HasilCompound.HasilCompound),
 	('/kontak', Kontak.Kontak),
     ('/admin/dashboard', Admin.Admin),
+    ('/admin/auth', AuthController.AuthController),
 ], debug=True)
