@@ -18,7 +18,8 @@ from lib import Kontak
 from lib import Post
 from lib import PostController
 from lib import Admin
-from lib import AuthController
+from lib import LoginController
+from lib import LogoutController
 
 from pytz import timezone
 
@@ -94,5 +95,6 @@ application = webapp2.WSGIApplication([
 	('/hasil/compound', HasilCompound.HasilCompound),
 	('/kontak', Kontak.Kontak),
     ('/admin/dashboard', Admin.Admin),
-    ('/admin/auth', AuthController.AuthController),
+    ('/admin/login', LoginController.LoginController),
+    ('/admin/logout', LogoutController.LogoutController)
 ], debug=True)

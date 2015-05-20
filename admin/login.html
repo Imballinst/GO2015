@@ -44,7 +44,7 @@
             {% if valid == 2: %}
                 <p class="text-danger">Masukan salah. Silahkan input lagi.</p>
             {% endif %}
-            <form method="post" action="">
+            <form method="post" action="/admin/dashboard">
                 <div class="form-group">
                     <label for="username">Username</label>
                     <input type="text" class="form-control" id="inputUser" name="user">
@@ -53,7 +53,7 @@
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="inputPass" name="pass"></textarea>
                 </div>
-                <button type="submit" action="/admin/dashboard" name="submitType" value="validasi" class="btn btn-default">Submit</button>
+                <button type="submit" name="submitType" value="validasi" class="btn btn-default">Submit</button>
                 <br><br>
             </form>
         {% elif valid == 1: %}

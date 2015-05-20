@@ -46,29 +46,28 @@ class Admin(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('/admin/dashboard.html')
         self.response.write(template.render(template_values))
 
+    # Action to POST request -- Login
     def post(self):
+        # Variables
         form = self.request.get('submitType')
-        title = None
-        content = None
-        exp = self.request.cookies.get('expire')
-        logging.info(exp)
-
-        if (exp != None):
-            valid = CookieManager.checkCookie(exp)
-        else:
-            valid = 0
-
-        if form == 'submitPost':
-            title = self.request.get('title')
-            content = self.request.get('content')
-            
-            # Instantiate Blog class
-            postObject = Post.Post()
-            
-            # Insert the attributes to data store
-            postObject.insertToDatastore(title, content)
-
-        # Loads the page
+        valid = 0
+        user = None
+        passw = None
+        
+        if form == 'validasi':
+            user = self.request.get('user')
+            passw = self.request.get('pass')
+            logging.info(user)
+            logging.info(passw)
+            if ((user == 'panitiago2015') and (passw == 'semangka')):
+                valid = 1
+                c = CookieManager.setCookieValue()
+                self.response.set_cookie('expire', c)
+            else:
+                valid = 2
+        
+        logging.info(valid)
+        # Reload the page with null template
         template_values = {
             'valid': valid,
         }
