@@ -41,3 +41,30 @@ class LoginController(webapp2.RequestHandler):
         
         template = JINJA_ENVIRONMENT.get_template('/admin/login.html')
         self.response.write(template.render(template_values))
+
+    def post(self):
+        form = self.request.get('submitType')
+        valid = 0
+        user = None
+        passw = None
+        
+        if form == 'validasi':
+            user = self.request.get('user')
+            passw = self.request.get('pass')
+            logging.info(user)
+            logging.info(passw)
+            if ((user == 'panitiago2015') and (passw == 'semangka')):
+                valid = 1
+                c = CookieManager.setCookieValue()
+                self.response.set_cookie('expire', c)
+            else:
+                valid = 2
+        
+        logging.info(valid)
+        # Reload the page with null template
+        template_values = {
+            'valid': valid,
+        }
+        
+        template = JINJA_ENVIRONMENT.get_template('/admin/login.html')
+        self.response.write(template.render(template_values))
