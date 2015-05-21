@@ -20,6 +20,7 @@ from lib import PostController
 from lib import Admin
 from lib import LoginController
 from lib import LogoutController
+from lib import Registrasi
 
 from pytz import timezone
 
@@ -86,6 +87,7 @@ class MainPage(webapp2.RequestHandler):
 application = webapp2.WSGIApplication([
 	('/', MainPage, Post.Post),
     ('/post', PostController.PostController),
+    ('/registrasi', Registrasi.Registrasi),
 	('/tentang-kami', TentangKami.TentangKami),
 	('/jadwal/nasional', JadwalNasional.JadwalNasional),
 	('/jadwal/recurve', JadwalRecurve.JadwalRecurve),

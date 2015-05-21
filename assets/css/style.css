@@ -1,5 +1,9 @@
 /* Modify Bootstrap things */
 
+.glyphicon {
+    margin-right: 3px;
+}
+
 .container {
 	margin-top: 80px;
 }
