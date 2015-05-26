@@ -37,6 +37,14 @@ class Post(ndb.Model):
     content = ndb.StringProperty(indexed=False)
     date = ndb.DateTimeProperty(auto_now_add=True)
 
+    def whatisthis(self, s):
+        if isinstance(s, str):
+            logging.info("ordinary string")
+        elif isinstance(s, unicode):
+            logging.info("unicode string")
+        else:
+            logging.info("not a string")
+
     def listPosts(self):
         # Set variable name
         blog_name = DEFAULT_BLOG_NAME
@@ -59,6 +67,8 @@ class Post(ndb.Model):
         # Input into model's attribute
         post.title = title
         post.content = content
+
+        self.whatisthis(post.content)
         
         # Submit
         post.put()
