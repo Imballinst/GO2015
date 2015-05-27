@@ -26,6 +26,10 @@
 
 /* Personal Styles */
 
+.icon-margin {
+    margin-right: 10px;
+}
+
 body {
 	width: 100%;
 	background-size: cover;
