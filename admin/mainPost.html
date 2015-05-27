@@ -36,28 +36,33 @@
         </div><!-- /.container-fluid -->
     </nav>
     
+    <h1 class="title">
+        <ol class="breadcrumb">
+            <li class="active"><a href="">Dashboard</a></li>
+        </ol>
+    </h1>
+
     <div class="container">
-        <h1 class="title">Dashboard</h1>
-        
-        {% if (valid == 0 or valid == 2): %}
-            {% if valid == 2: %}
-                <p class="text-danger">Masukan salah. Silahkan input lagi.</p>
-            {% endif %}
-            <form method="post" action="">
-                <div class="form-group">
-                    <label for="username">Username</label>
-                    <input type="text" class="form-control" id="inputUser" name="user">
+        {% if (valid == 1): %}
+            <div id="addPost" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <form method="post" action="">
+                        <div class="form-group">
+                            <label for="judulPost">Judul Post</label>
+                            <input type="text" class="form-control" id="inputJudul" name="title" placeholder="Ketikkan judul post">
+                        </div>
+                        <div class="form-group">
+                            <label for="kontenPost">Konten Post</label>
+                            <textarea class="form-control" id="inputKonten" name="content" rows="3"></textarea>
+                        </div>
+                        <button type="submit" name="submitType" value="submitPost" class="btn btn-default">Submit</button>
+                        <br><br>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" id="inputPass" name="pass"></textarea>
-                </div>
-                <button type="submit" name="submitType" value="validasi" class="btn btn-default">Submit</button>
-                <br><br>
-            </form>
-        {% elif valid == 1: %}
+            </div> <!-- Add Post Close -->
+        {% else: %}
             <script>
-                window.location = "/admin/dashboard";
+                window.location = "/admin/login";
             </script>
         {% endif %}
     </div>

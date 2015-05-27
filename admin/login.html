@@ -24,13 +24,12 @@
             
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-left">
-                    <!-- -->
+                    <li class="active"><a href="/"><img class="brand" src="/assets/img/brand.png"></img></a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/"><span class="glyphicon glyphicon-home"></span>
-                        {% if (valid == 1): %}Logout
-                        {% endif %}
-                    </a></li>
+                    {% if (valid == 1): %}Logout
+                    <li><a href="/"><span class="glyphicon glyphicon-log-out"></span></a></li>
+                    {% endif %}
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
