@@ -9,9 +9,10 @@
 }
 
 .row {
-	border: 1px solid;
+	border: 5px groove;
     margin-bottom: 20px;
     border-radius: 5px;
+    padding: 20px;
     background-color: rgba(255, 255, 255, 0.5)
 }
 
@@ -24,20 +25,6 @@
 }
 
 /* Personal Styles */
-
-img {
-    width: 100%;
-    height: 100%;
-}
-
-.brand {
-    width: 150px;
-    height: 25px;
-}
-
-.full {
-    margin-top: 55px;
-}
 
 body {
 	width: 100%;
@@ -86,8 +73,26 @@ body {
 
 /** Images **/
 
-.headerImage {
-	
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.brand {
+    width: 150px;
+    height: 25px;
+}
+
+.full {
+    margin-top: 55px;
+}
+
+.button {
+    width: 200px;
+    height: 50px;
+    display: block;
+    margin: 0 auto;
+    clear: right;
 }
 
 /** Headings **/
@@ -98,5 +103,18 @@ h1.title {
 
 h2.date {
     margin-top: 0;
-    margin-bottom: 20px;
+}
+
+p.text {
+    margin-top: 30px;
+    font-size: 12px;
+}
+
+/** Font-Faces **/
+
+@font-face {
+  font-family: 'Cinnamon';
+
+  src: url('/assets/fonts/cinnamoncake.eot');
+  src: url('/assets/fonts/cinnamoncake.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/cinnamoncake.woff2') format('woff2'), url('/assets/fonts/cinnamoncake.woff') format('woff'), url('/assets/fonts/cinnamoncake.ttf') format('truetype'), url('/assets/fonts/cinnamoncake.svg#glyphicons_halflingsregular') format('svg');
 }

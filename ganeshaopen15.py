@@ -65,12 +65,9 @@ class MainPage(webapp2.RequestHandler):
             utc_dt = utc.localize(post.date)
             jkt_dt = utc_dt.astimezone(jkt)
 
-            p = post.content
-            logging.info(type(p))
-
             # Insert to list
             titleList.append(post.title)
-            contentList.append(p)
+            contentList.append(post.content)
             datetimeList.append(jkt_dt)
             postIDList.append(post.key.id())
             
