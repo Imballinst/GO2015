@@ -30,6 +30,15 @@ img {
     height: 100%;
 }
 
+.brand {
+    width: 150px;
+    height: 25px;
+}
+
+.full {
+    margin-top: 55px;
+}
+
 body {
 	width: 100%;
 	background-size: cover;

@@ -58,15 +58,19 @@ class MainPage(webapp2.RequestHandler):
         # Set timezone
         jkt = timezone('Asia/Jakarta')
         utc = timezone('UTC')
+
         # For post in posts ...
         for post in posts:
             # Convert timezone
             utc_dt = utc.localize(post.date)
             jkt_dt = utc_dt.astimezone(jkt)
-            
+
+            p = post.content
+            logging.info(type(p))
+
             # Insert to list
             titleList.append(post.title)
-            contentList.append(post.content)
+            contentList.append(p)
             datetimeList.append(jkt_dt)
             postIDList.append(post.key.id())
             
