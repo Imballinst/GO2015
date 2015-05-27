@@ -13,9 +13,15 @@
 	</title>
 </head>
 <body>
+    {% if valid == 1: %}
+        <script>
+        window.location = "/admin/post-menu";
+        </script>
+    {% else: %}
     <script>
         window.location = "/";
     </script>
+    {% endif %}
 </body>
 </html>
 {% endautoescape %}

@@ -24,10 +24,10 @@
             
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="/"><img class="brand" src="/assets/img/brand.png"></img></a></li>
-                    <li><a href=""><span class="glyphicon glyphicon-home"></span>Dashboard</a></li>
-                    <li><a href=""><span class="glyphicon glyphicon-envelope"></span>Post</a></li>
-                    <li><a href=""><span class="glyphicon glyphicon-inbox"></span>Kotak Saran</a></li>
+                    <li><a href="/"><img class="brand" src="/assets/img/brand.png"></img></a></li>
+                    <li class="active"><a href=""><span class="glyphicon glyphicon-home"></span>Dashboard</a></li>
+                    <li><a href="/admin/post-menu"><span class="glyphicon glyphicon-envelope"></span>Post</a></li>
+                    <li><a href="/admin/kotak-saran"><span class="glyphicon glyphicon-inbox"></span>Kotak Saran</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/admin/logout"><span class="glyphicon glyphicon-log-out"></span> 
@@ -45,33 +45,7 @@
         </ol>
         
         {% if valid == 1: %}
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#addPost">
-                        <h4 class="panel-title">
-                            <a class="accordion-toggle">
-                                Add Post
-                            </a>
-                        </h4>
-                    </div>
-                    <div id="addPost" class="panel-collapse collapse">
-                        <div class="panel-body">
-                            <form method="post" action="">
-                                <div class="form-group">
-                                    <label for="judulPost">Judul Post</label>
-                                    <input type="text" class="form-control" id="inputJudul" name="title" placeholder="Ketikkan judul post">
-                                </div>
-                                <div class="form-group">
-                                    <label for="kontenPost">Konten Post</label>
-                                    <textarea class="form-control" id="inputKonten" name="content" rows="3"></textarea>
-                                </div>
-                                <button type="submit" name="submitType" value="submitPost" class="btn btn-default">Submit</button>
-                                <br><br>
-                            </form>
-                        </div>
-                    </div> <!-- Add Post Close -->
-                </div>
-            </div>
+            
         {% else: %}
             <script>
                 window.location = "/admin/login";

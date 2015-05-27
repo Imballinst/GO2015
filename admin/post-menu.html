@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" type="text/css" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    
+    <title>
+        Admin Post Management | Ganesha Open 2015
+    </title>
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="glyphicon glyphicon-th-list"></span>
+                </button>
+            </div><!-- /.navbar-header -->
+            
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-left">
+                    <li><a href="/"><img class="brand" src="/assets/img/brand.png"></img></a></li>
+                    <li><a href="/admin/dashboard"><span class="glyphicon glyphicon-home"></span>Dashboard</a></li>
+                    <li class="active"><a href=""><span class="glyphicon glyphicon-envelope"></span>Post</a></li>
+                    <li><a href="/admin/kotak-saran"><span class="glyphicon glyphicon-inbox"></span>Kotak Saran</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/admin/logout"><span class="glyphicon glyphicon-log-out"></span> 
+                        {% if (valid == 1): %}Logout
+                        {% endif %}
+                    </a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+        <ol class="breadcrumb">
+            <li><a href="/admin/dashboard">Dashboard</a></li>
+            <li class="active">Post Menu</li>
+        </ol>
+
+        {% if (valid == 1): %}
+            <div class="table-responsive">
+                <table class="table table-condensed">
+                    <tr>
+                        <th>Nomor</th>
+                        <th>Judul Post</th>
+                        <th>Tanggal Post</th>
+                        <th>Konten Post</th>
+                        <th>-</th>
+                        <th>-</th>
+                    <tr>
+                    {% for i in range(count): %}
+                    <tr>
+                        <td>{{ i+1 }}</td>
+                        <td>{{ titleList[i] }}</td>
+                        <td>{{ datetimeList[i] }}</td>
+                        <td>{{ contentList[i] }}</td>
+                        <td><a href="/admin/post?editid={{ postIDList[i] }}"><span class="glyphicon glyphicon-edit"></span>Edit</a></td>
+                        <td><a href="/admin/post?deleteid={{ postIDList[i] }}"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>
+                    </div>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#addPost">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle">
+                                Add Post
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="addPost" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <form method="post" action="">
+                                <div class="form-group">
+                                    <label for="judulPost">Judul Post</label>
+                                    <input type="text" class="form-control" id="inputJudul" name="title" placeholder="Ketikkan judul post">
+                                </div>
+                                <div class="form-group">
+                                    <label for="kontenPost">Konten Post</label>
+                                    <textarea class="form-control" id="inputKonten" name="content" rows="3"></textarea>
+                                </div>
+                                <button type="submit" name="submitType" value="submitPost" class="btn btn-default">Submit</button>
+                                <br><br>
+                            </form>
+                        </div>
+                    </div> <!-- Add Post Close -->
+                </div>
+            </div>
+        {% else: %}
+            <script>
+                window.location = "/admin/login";
+            </script>
+        {% endif %}
+    </div>
+    
+    <script language="javascript" type="text/javascript" src="/assets/js/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/assets/js/bootstrap-confirmation.js"></script>
+
+    <script>
+
+    </script>
+</body>
+</html>
+{% endautoescape %}

@@ -42,7 +42,7 @@ class Post(ndb.Model):
         blog_name = DEFAULT_BLOG_NAME
         
         # Instantiates a query
-        posts_query = Post.query(ancestor=blog_key(blog_name)).order(-Post.date)
+        posts_query = Post.query(ancestor=blog_key(blog_name)).order(+Post.date)
         
         # Execute the query
         posts = posts_query.fetch(10)
@@ -59,7 +59,7 @@ class Post(ndb.Model):
         # Input into model's attribute
         post.title = title
         post.content = content
-        
+
         # Submit
         post.put()
     
@@ -72,3 +72,29 @@ class Post(ndb.Model):
         key = blog_key(blog_name)
         post = Post.get_by_id(postID, parent=key)
         post.key.delete()
+
+    def getPost(self, postID):
+        # Define variables
+        blog_name = DEFAULT_BLOG_NAME
+
+        # Get the post
+        postID = int(postID)
+        key = blog_key(blog_name)
+        post = Post.get_by_id(postID, parent=key)
+        return post
+
+    def updatePost(self, title, content, postID):
+        # Set variable name
+        blog_name = DEFAULT_BLOG_NAME
+        
+        # Get the post
+        postID = int(postID)
+        key = blog_key(blog_name)
+        post = Post.get_by_id(postID, parent=key)
+
+        # Edit entity
+        post.title = title
+        post.content = content
+
+        # Submit
+        post.put()

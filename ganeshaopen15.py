@@ -21,6 +21,7 @@ from lib import Admin
 from lib import LoginController
 from lib import LogoutController
 from lib import Registrasi
+from lib import PostMenu
 
 from pytz import timezone
 
@@ -68,7 +69,7 @@ class MainPage(webapp2.RequestHandler):
             # Insert to list
             titleList.append(post.title)
             contentList.append(post.content)
-            datetimeList.append(jkt_dt)
+            datetimeList.append(jkt_dt.strftime("%d-%m-%Y %H:%M:%S"))
             postIDList.append(post.key.id())
             
 		# Loads the page
@@ -86,8 +87,7 @@ class MainPage(webapp2.RequestHandler):
 # List of HTML files and classes implemented into them
 	
 application = webapp2.WSGIApplication([
-	('/', MainPage, Post.Post),
-    ('/post', PostController.PostController),
+	('/', MainPage),
     ('/registrasi', Registrasi.Registrasi),
 	('/tentang-kami', TentangKami.TentangKami),
 	('/jadwal/nasional', JadwalNasional.JadwalNasional),
@@ -99,5 +99,7 @@ application = webapp2.WSGIApplication([
 	('/kontak', Kontak.Kontak),
     ('/admin/dashboard', Admin.Admin),
     ('/admin/login', LoginController.LoginController),
-    ('/admin/logout', LogoutController.LogoutController)
+    ('/admin/logout', LogoutController.LogoutController),
+    ('/admin/post-menu', PostMenu.PostMenu),
+    ('/admin/post', PostController.PostController),
 ], debug=True)
