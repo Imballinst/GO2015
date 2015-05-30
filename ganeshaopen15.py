@@ -22,6 +22,7 @@ from lib import LoginController
 from lib import LogoutController
 from lib import Registrasi
 from lib import PostMenu
+from lib import Galeri
 
 from pytz import timezone
 
@@ -84,7 +85,7 @@ class MainPage(webapp2.RequestHandler):
         template = JINJA_ENVIRONMENT.get_template('index.html')
         self.response.write(template.render(template_values))
 
-# List of HTML files and classes implemented into them
+# Routes
 	
 application = webapp2.WSGIApplication([
 	('/', MainPage),
@@ -102,4 +103,5 @@ application = webapp2.WSGIApplication([
     ('/admin/logout', LogoutController.LogoutController),
     ('/admin/post-menu', PostMenu.PostMenu),
     ('/admin/post', PostController.PostController),
+    ('/admin/galeri', Galeri.Galeri),
 ], debug=True)

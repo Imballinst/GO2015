@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
     
     <title>
-        Admin Post Edit | Ganesha Open 2015
+        Admin Gallery Management | Ganesha Open 2015
     </title>
 </head>
 <body>
@@ -26,9 +26,9 @@
                 <ul class="nav navbar-nav navbar-left">
                     <li><a href="/"><img class="brand" src="/assets/img/brand.png"></img></a></li>
                     <li><a href="/admin/dashboard"><span class="glyphicon glyphicon-home"></span>Dashboard</a></li>
-                    <li class="active"><a href=""><span class="glyphicon glyphicon-envelope"></span>Post</a></li>
+                    <li><a href="/admin/post"><span class="glyphicon glyphicon-envelope"></span>Post</a></li>
                     <li><a href="/admin/kotak-saran"><span class="glyphicon glyphicon-inbox"></span>Kotak Saran</a></li>
-                    <li><a href="/admin/galeri"><span class="glyphicon glyphicon-camera"></span>Galeri</a></li>
+                    <li><a href=""><span class="glyphicon glyphicon-camera"></span>Galeri</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/admin/logout"><span class="glyphicon glyphicon-log-out"></span> 
@@ -43,24 +43,35 @@
     <div class="container">
         <ol class="breadcrumb">
             <li><a href="/admin/dashboard">Dashboard</a></li>
-            <li><a href="/admin/post-menu">Admin Post Management</a></li>
-            <li class="active">Edit Post</li>
+            <li class="active">Gallery</li>
         </ol>
 
         {% if (valid == 1): %}
-            <form method="post" action="">
-                <div class="form-group">
-                    <label for="judulPost">Judul Post</label>
-                    <input type="text" class="form-control" id="inputJudul" name="title" placeholder="Ketikkan judul post" value="{{ post.title }}">
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" data-target="#addPost">
+                        <h4 class="panel-title">
+                            <a class="accordion-toggle">
+                                Add Post
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="addPost" class="panel-collapse collapse">
+                        <div class="panel-body">
+                            <form method="post" action="" enctype="multipart/form-data">
+                                <div class="form-group">
+                                    <label for="judulPost">Judul Post</label>
+                                    <input type="text" class="form-control" id="inputJudul" name="title" placeholder="Ketikkan judul post">
+                                </div>
+                                <input type="file" name="inputImage">
+                                <br>
+                                <button type="submit" name="submitType" value="uploadGambar" class="btn btn-default">Submit</button>
+                                <br><br>
+                            </form>
+                        </div>
+                    </div> <!-- Add Post Close -->
                 </div>
-                <div class="form-group">
-                    <label for="kontenPost">Konten Post</label>
-                    <textarea class="form-control" id="inputKonten" name="content" rows="3">{{ post.content }}</textarea>
-                </div>
-                <input type="hidden" name="editID" value="{{ editID }}">
-                <button type="submit" name="submitType" value="editPost" class="btn btn-default">Submit</button>
-                <br><br>
-            </form>
+            </div>
         {% else: %}
             <script>
                 window.location = "/admin/login";
@@ -70,6 +81,11 @@
     
     <script language="javascript" type="text/javascript" src="/assets/js/jquery.min.js"></script>
     <script language="javascript" type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/assets/js/bootstrap-confirmation.js"></script>
+
+    <script>
+
+    </script>
 </body>
 </html>
 {% endautoescape %}
