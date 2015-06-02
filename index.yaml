@@ -20,3 +20,8 @@ indexes:
   properties:
   - name: date
     direction: desc
+
+- kind: Saran
+  ancestor: yes
+  properties:
+  - name: date

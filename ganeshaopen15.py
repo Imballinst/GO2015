@@ -7,6 +7,7 @@ import logging
 
 from datetime import datetime
 
+# Public
 from lib import TentangKami
 from lib import JadwalNasional
 from lib import JadwalRecurve
@@ -16,6 +17,8 @@ from lib import HasilRecurve
 from lib import HasilCompound
 from lib import Kontak
 from lib import Post
+
+# Admin
 from lib import PostController
 from lib import Admin
 from lib import LoginController
@@ -23,6 +26,7 @@ from lib import LogoutController
 from lib import Registrasi
 from lib import PostMenu
 from lib import Galeri
+from lib import KotakSaran
 
 from pytz import timezone
 
@@ -103,5 +107,6 @@ application = webapp2.WSGIApplication([
     ('/admin/logout', LogoutController.LogoutController),
     ('/admin/post-menu', PostMenu.PostMenu),
     ('/admin/post', PostController.PostController),
+    ('/admin/kotak-saran', KotakSaran.KotakSaran),
     ('/admin/galeri', Galeri.Galeri),
 ], debug=True)

@@ -18,16 +18,16 @@ path = os.path.abspath(os.path.join(path, os.pardir))
 # Jinja template
 
 JINJA_ENVIRONMENT = jinja2.Environment(
-	loader=jinja2.FileSystemLoader(path),
-	extensions=['jinja2.ext.autoescape'],
-	autoescape=True)
+    loader=jinja2.FileSystemLoader(path),
+    extensions=['jinja2.ext.autoescape'],
+    autoescape=True)
 
 # Class TentangKami
 
 class TentangKami(webapp2.RequestHandler):
-	def get(self):
-		# When the page first loads, null template
-		template_values = {}
-		
-		template = JINJA_ENVIRONMENT.get_template('/tentang-kami.html')
-		self.response.write(template.render(template_values))
+    def get(self):
+        # When the page first loads, null template
+        template_values = {}
+        
+        template = JINJA_ENVIRONMENT.get_template('/tentang-kami.html')
+        self.response.write(template.render(template_values))
