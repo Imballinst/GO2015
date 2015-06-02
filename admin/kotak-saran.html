@@ -56,7 +56,6 @@
                         <th>Email</th>
                         <th>Isi Saran</th>
                         <th>-</th>
-                        <th>-</th>
                     <tr>
                     {% for i in range(count): %}
                     <tr>
@@ -65,8 +64,7 @@
                         <td>{{ datetimeList[i] }}</td>
                         <td>{{ emailList[i] }}</td>
                         <td>{{ contentList[i] }}</td>
-                        <td><a href="/admin/post?editid={{ saranIDList[i] }}"><span class="glyphicon glyphicon-edit"></span>Edit</a></td>
-                        <td><a href="/admin/post?deleteid={{ saranIDList[i] }}"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>
+                        <td><a href="/admin/saran?deleteid={{ saranIDList[i] }}"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>
                     </div>
                     {% endfor %}
                 </table>

@@ -27,6 +27,7 @@ from lib import Registrasi
 from lib import PostMenu
 from lib import Galeri
 from lib import KotakSaran
+from lib import SaranController
 
 from pytz import timezone
 
@@ -107,6 +108,7 @@ application = webapp2.WSGIApplication([
     ('/admin/logout', LogoutController.LogoutController),
     ('/admin/post-menu', PostMenu.PostMenu),
     ('/admin/post', PostController.PostController),
+    ('/admin/saran', SaranController.SaranController),
     ('/admin/kotak-saran', KotakSaran.KotakSaran),
     ('/admin/galeri', Galeri.Galeri),
 ], debug=True)

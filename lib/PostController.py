@@ -44,17 +44,18 @@ class PostController(webapp2.RequestHandler):
         # Get Delete ID
         deleteID = self.request.get('deleteid')
 
-        # Get Delete ID
+        # Get Edit ID
         editID = self.request.get('editid')
 
         # Delete Post with Proper ID
         if (deleteID != ''):
             postObject.deletePost(deleteID)
+            source = 'post'
 
             # When the page first loads, null template
             template_values = {
                 'valid': valid,
-                'editID': editID,
+                'source': source,
             }
             
             template = JINJA_ENVIRONMENT.get_template('/redirect.html')

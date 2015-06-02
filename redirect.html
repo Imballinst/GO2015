@@ -14,9 +14,15 @@
 </head>
 <body>
     {% if valid == 1: %}
+        {% if source == 'post': %}
         <script>
         window.location = "/admin/post-menu";
         </script>
+        {% elif source == 'saran': %}
+        <script>
+        window.location = "/admin/kotak-saran";
+        </script>
+        {% endif %}
     {% else: %}
     <script>
         window.location = "/";
