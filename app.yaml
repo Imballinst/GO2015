@@ -31,6 +31,8 @@ handlers:
   static_dir: assets/img
 - url: /assets/js
   static_dir: assets/js
+- url: /unduh
+  static_dir: unduh
 - url: /favicon.ico
   static_files: assets/img/favicon.ico
   upload: assets/img/favicon.ico

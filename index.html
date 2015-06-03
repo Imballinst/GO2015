@@ -55,13 +55,6 @@
     <img class="full" src="/assets/img/header.jpg">
 
 	<div class="container">
-        <div class="row">
-            <div class="col-md-12"><h2 class="text-center">Website Resmi Ganesha Open 2015</h2></div>
-            <div class="col-md-12"><p class="text">
-                
-                Halo! Ini adalah website resmi salah satu turnamen panahan indoor terbesar di Indonesia, Ganesha Open! Terakhir diselenggarakan pada tahun 2013, tahun ini kami kembali lagi untuk mengumpulkan seluruh pemanah dari berbagai penjuru Indonesia!
-            </p></div>
-        </div>
         {% for i in range(count): %}
         <div class="row">
             <div class="col-md-12"><h2 class="text-center">{{ titleList[i] }}</h2></div>
@@ -69,6 +62,13 @@
             <div class="col-md-12"><p class="text">{{ contentList[i]|safe }}</p></div>
         </div>
         {% endfor %}
+        <div class="row">
+            <div class="col-md-12"><h2 class="text-center">Website Resmi Ganesha Open 2015</h2></div>
+            <div class="col-md-12"><p class="text">
+                <img src="/assets/img/poster.jpg"></img>
+                Halo! Ini adalah website resmi salah satu turnamen panahan indoor terbesar di Indonesia, Ganesha Open! Terakhir diselenggarakan pada tahun 2013, tahun ini kami kembali lagi untuk mengumpulkan seluruh pemanah dari berbagai penjuru Indonesia! Ayo ikut serta dan jadi juara di turnamen panahan ini! Untuk melakukan registrasi, silahkan menekan tombol navigasi "Registrasi".
+            </p></div>
+        </div>
 	</div>
     
     <footer class="footer">

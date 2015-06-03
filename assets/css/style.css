@@ -114,6 +114,10 @@ p.text {
     font-size: 12px;
 }
 
+.center {
+    text-align: center;
+}
+
 /** Font-Faces **/
 
 @font-face {
