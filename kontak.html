@@ -70,6 +70,9 @@
                         <textarea class="form-control" rows="5" id="inputSaran" name="saran"></textarea>
                         * = wajib
                     </div>
+                    {% if valid == 0: %}
+                        <p class="text-danger">Input nama atau E-mail tidak boleh kosong.</p>
+                    {% endif %}
                     <button type="submit" name="submitType" value="submitSaran" class="btn btn-default">Submit</button>
             </form>
             </div>

@@ -46,7 +46,7 @@ class Saran(ndb.Model):
         saran_query = Saran.query(ancestor=box_key(box_name)).order(+Saran.date)
         
         # Execute the query
-        saran = saran_query.fetch(5)
+        saran = saran_query.fetch()
         
         return saran
     

@@ -28,8 +28,12 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 
 class Kontak(webapp2.RequestHandler):
     def get(self):
+        valid = 1
+
         # When the page first loads, null template
-        template_values = {}
+        template_values = {
+            'valid': valid,
+        }
 
         template = JINJA_ENVIRONMENT.get_template('/kontak.html')
         self.response.write(template.render(template_values))
@@ -39,20 +43,26 @@ class Kontak(webapp2.RequestHandler):
         nama = None
         email = None
         saran = None
+        valid = 1
 
         if form == 'submitSaran':
             nama = self.request.get('name')
             email = self.request.get('email')
             saran = self.request.get('saran')
             
-            # Instantiate Blog class
-            saranObject = Saran.Saran()
-            
-            # Insert the attributes to data store
-            saranObject.insertToDatastore(nama, email, saran)
+            if (nama != '' and email != ''):
+                # Instantiate Blog class
+                saranObject = Saran.Saran()
+                
+                # Insert the attributes to data store
+                saranObject.insertToDatastore(nama, email, saran)
+            else:
+                valid = 0
 
         # When the page first loads, null template
-        template_values = {}
+        template_values = {
+            'valid': valid,
+        }
         
         template = JINJA_ENVIRONMENT.get_template('/kontak.html')
         self.response.write(template.render(template_values))

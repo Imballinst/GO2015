@@ -17,6 +17,7 @@ from lib import HasilRecurve
 from lib import HasilCompound
 from lib import Kontak
 from lib import Post
+from lib import Down
 
 # Admin
 from lib import PostController
@@ -91,7 +92,7 @@ class MainPage(webapp2.RequestHandler):
         self.response.write(template.render(template_values))
 
 # Routes
-	
+
 application = webapp2.WSGIApplication([
 	('/', MainPage),
     ('/registrasi', Registrasi.Registrasi),
