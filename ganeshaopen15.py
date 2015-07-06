@@ -18,6 +18,7 @@ from lib import HasilCompound
 from lib import Kontak
 from lib import Post
 from lib import Down
+from lib import Tes
 
 # Admin
 from lib import PostController
@@ -50,7 +51,7 @@ JINJA_ENVIRONMENT = jinja2.Environment(
 # Class MainPage
 
 class MainPage(webapp2.RequestHandler):
-    def get(self):        
+    def get(self):
         # Define variables
         postObject = Post.Post()
         posts = postObject.listPosts()
@@ -104,6 +105,7 @@ application = webapp2.WSGIApplication([
 	('/hasil/recurve', HasilRecurve.HasilRecurve),
 	('/hasil/compound', HasilCompound.HasilCompound),
 	('/kontak', Kontak.Kontak),
+    ('/tes', Tes.Tes),
     ('/admin/dashboard', Admin.Admin),
     ('/admin/login', LoginController.LoginController),
     ('/admin/logout', LogoutController.LogoutController),
