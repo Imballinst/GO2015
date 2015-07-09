@@ -49,6 +49,11 @@ body {
     color: #000;
 }
 
+.a-btn-close.float-right {
+    float: right;
+    cursor: pointer;
+}
+
 .modal-header-custom {
     background: -webkit-linear-gradient(#FFF8DC, #FFEBCD); /* For Safari 5.1 to 6.0 */
     background: -o-linear-gradient(#FFF8DC, #FFEBCD); /* For Opera 11.1 to 12.0 */
