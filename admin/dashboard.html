@@ -13,45 +13,55 @@
 	</title>
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="glyphicon glyphicon-th-list"></span>
-                </button>
-            </div><!-- /.navbar-header -->
-            
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li><a href="/"><img class="brand" src="/assets/img/brand.png"></img></a></li>
-                    <li class="active"><a href=""><span class="glyphicon glyphicon-home"></span>Dashboard</a></li>
-                    <li><a href="/admin/post-menu"><span class="glyphicon glyphicon-envelope"></span>Post</a></li>
-                    <li><a href="/admin/kotak-saran"><span class="glyphicon glyphicon-inbox"></span>Kotak Saran</a></li>
-                    <li><a href="/admin/galeri"><span class="glyphicon glyphicon-camera"></span>Galeri</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/admin/logout"><span class="glyphicon glyphicon-log-out"></span> 
-                        {% if (valid == 1): %}Logout
-                        {% endif %}
-                    </a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+    <div id="header">
+    	<nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </button>
+                </div><!-- /.navbar-header -->
+                
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="/"><img class="brand" src="/assets/img/brand.png"></img></a></li>
+                        <li class="active"><a href=""><span class="glyphicon glyphicon-home"></span>Dashboard</a></li>
+                        <li><a href="/admin/post-menu"><span class="glyphicon glyphicon-envelope"></span>Post</a></li>
+                        <li><a href="/admin/kotak-saran"><span class="glyphicon glyphicon-inbox"></span>Kotak Saran</a></li>
+                        <li><a href="/admin/galeri"><span class="glyphicon glyphicon-camera"></span>Galeri</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/admin/logout"><span class="glyphicon glyphicon-log-out"></span> 
+                            {% if (valid == 1): %}Logout
+                            {% endif %}
+                        </a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
 
-    <div class="container">
-        <ol class="breadcrumb">
-            <li class="active">Dashboard</li>
-        </ol>
-        
-        {% if valid == 1: %}
-            
-        {% else: %}
-            <script>
-                window.location = "/admin/login";
-            </script>
-        {% endif %}
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ol class="breadcrumb breadcrumb-custom">
+                            <li class="active">Dashboard</li>
+                        </ol>
+                        
+                        {% if valid == 1: %}
+                            
+                        {% else: %}
+                            <script>
+                                window.location = "/admin/login";
+                            </script>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 	
 	<script language="javascript" type="text/javascript" src="/assets/js/jquery.min.js"></script>

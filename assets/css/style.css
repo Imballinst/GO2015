@@ -1,47 +1,160 @@
-/* Modify Bootstrap things */
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
-.glyphicon {
-    margin-right: 3px;
-}
+/* Header */
 
-.container {
-	margin-top: 80px;
-}
-
-.row {
-	border: 5px groove;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.5)
-}
-
-.container-fluid {
-    background: rgba(255,255,255,0);
-}
-
-.panel-heading {
-    cursor: pointer;
-}
-
-/* Personal Styles */
-
-.icon-margin {
-    margin-right: 10px;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
 body {
-	width: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
-    font-family: "Tahoma", Geneva, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url("../img/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Open Sans';
+}
+
+/* Content */
+
+.panel {
+    background-color: #FFE4C4;
+    padding: 15px;
+}
+
+#content {
+    margin-top: 75px;
+    padding-bottom: 75px;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table > thead > tr > th {
+    text-align: center;
+}
+
+.btn-custom-modal {
+    background-color: #FFEFD5;
+    border-color: #DEB887;
+    color: #000;
+}
+
+.btn-custom-modal:hover, .btn-custom-modal:focus {
+    background-color: #FFE4B5;
+    border-color: #DEB887;
+    color: #000;
+}
+
+.modal-header-custom {
+    background: -webkit-linear-gradient(#FFF8DC, #FFEBCD); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#FFF8DC, #FFEBCD); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#FFF8DC, #FFEBCD); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#FFF8DC, #FFEBCD); /* Standard syntax (must be last) */
+    border-bottom-color: #000;
+}
+
+.modal-body-custom {
+    background: -webkit-linear-gradient(#FFEBCD, #FFE4C4); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#FFEBCD, #FFE4C4); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#FFEBCD, #FFE4C4); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#FFEBCD, #FFE4C4); /* Standard syntax (must be last) */
+}
+
+.modal-footer-custom {
+    background: -webkit-linear-gradient(#FFE4C4, #FFDEAD); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#FFE4C4, #FFDEAD); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#FFE4C4, #FFDEAD); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#FFE4C4, #FFDEAD); /* Standard syntax (must be last) */
+    border-top-color: #000;
+}
+
+.breadcrumb-custom {
+    background: #FAEBD7;
+}
+
+.panel-title-custom, .panel-default > .panel-heading-custom {
+    background: #FAEBD7;
+}
+
+/** Footer **/
+
+#footer .navbar{
+    background-color: rgba(255,239,204,0.35);
+    font-size: 16px;
+    color: #000;
+    position: absolute;
+}
+
+.icon-margin {
+    color: #FFF;
+    margin-right: 10px;
+}
+
+.icon-margin:hover {
+    color: #DEB887;
+}
+
+/** Images **/
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+.brand {
+    width: 150px;
+    height: 15px;
+}
+
+.full {
+    margin-top: 50px;
+    position: relative;
+}
+
+.img-content {
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.button {
+    width: 200px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+/** Headings **/
+
+.title {
+    margin-bottom: 20px;
+}
+
+.date {
+    margin-top: 0;
+}
+
+.text {
+    margin-top: 30px;
+    font-size: 12px;
+}
+
+.text-center {
+    font-family: 'Cinnamon';
+}
+
+.text-center-default {
+    text-align: center;
 }
 
 /** Page Navbar **/
 
 /* Tier 1 Navbar */
-.navbar-default {
+.navbar {
     background: #FFEFCC;
+    font-family: 'Roboto Slab';
 }
 
 .navbar-default .navbar-nav > .active,
@@ -67,6 +180,7 @@ body {
 .navbar-default .navbar-nav > .dropdown > .dropdown-menu > li > a {
     border-top: none;
     width: 100%;
+    color: #777;
     background: #FFEFCC;
 }
 
@@ -75,47 +189,10 @@ body {
     color: #000;
 }
 
-/** Images **/
+/* Other */
 
-img {
-    width: 100%;
-    height: 100%;
-}
-
-.brand {
-    width: 150px;
-    height: 15px;
-}
-
-.full {
-    margin-top: 50px;
-}
-
-.button {
-    width: 200px;
-    height: 50px;
-    display: block;
-    margin: 0 auto;
-    clear: right;
-}
-
-/** Headings **/
-
-h1.title {
-    margin-bottom: 20px;
-}
-
-h2.date {
-    margin-top: 0;
-}
-
-p.text {
-    margin-top: 30px;
-    font-size: 12px;
-}
-
-.center {
-    text-align: center;
+.glyphicon {
+    margin-right: 3px;
 }
 
 /** Font-Faces **/

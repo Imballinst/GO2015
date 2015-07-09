@@ -13,67 +13,77 @@
     </title>
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="glyphicon glyphicon-th-list"></span>
-                </button>
-            </div><!-- /.navbar-header -->
-            
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li><a href="/"><img class="brand" src="/assets/img/brand.png"></img></a></li>
-                    <li><a href="/admin/dashboard"><span class="glyphicon glyphicon-home"></span>Dashboard</a></li>
-                    <li><a href="/admin/post-menu"><span class="glyphicon glyphicon-envelope"></span>Post</a></li>
-                    <li class="active"><a href=""><span class="glyphicon glyphicon-inbox"></span>Kotak Saran</a></li>
-                    <li><a href="/admin/galeri"><span class="glyphicon glyphicon-camera"></span>Galeri</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/admin/logout"><span class="glyphicon glyphicon-log-out"></span> 
-                        {% if (valid == 1): %}Logout
+    <div id="header">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </button>
+                </div><!-- /.navbar-header -->
+                
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="/"><img class="brand" src="/assets/img/brand.png"></img></a></li>
+                        <li><a href="/admin/dashboard"><span class="glyphicon glyphicon-home"></span>Dashboard</a></li>
+                        <li><a href="/admin/post-menu"><span class="glyphicon glyphicon-envelope"></span>Post</a></li>
+                        <li class="active"><a href=""><span class="glyphicon glyphicon-inbox"></span>Kotak Saran</a></li>
+                        <li><a href="/admin/galeri"><span class="glyphicon glyphicon-camera"></span>Galeri</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/admin/logout"><span class="glyphicon glyphicon-log-out"></span> 
+                            {% if (valid == 1): %}Logout
+                            {% endif %}
+                        </a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
+
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <ol class="breadcrumb breadcrumb-custom">
+                            <li><a href="/admin/dashboard">Dashboard</a></li>
+                            <li class="active">Kotak Saran</li>
+                        </ol>
+
+                        {% if (valid == 1): %}
+                            <div class="table-responsive">
+                                <table class="table table-condensed">
+                                    <tr>
+                                        <th>Nomor</th>
+                                        <th>Nama</th>
+                                        <th>Tanggal</th>
+                                        <th>Email</th>
+                                        <th>Isi Saran</th>
+                                        <th>-</th>
+                                    </tr>
+                                    {% for i in range(count): %}
+                                    <tr>
+                                        <td>{{ i+1 }}</td>
+                                        <td>{{ nameList[i] }}</td>
+                                        <td>{{ datetimeList[i] }}</td>
+                                        <td>{{ emailList[i] }}</td>
+                                        <td>{{ contentList[i] }}</td>
+                                        <td><a href="/admin/saran?deleteid={{ saranIDList[i] }}"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                            </div>
+                        {% else: %}
+                            <script>
+                                window.location = "/admin/login";
+                            </script>
                         {% endif %}
-                    </a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
-
-    <div class="container">
-        <ol class="breadcrumb">
-            <li><a href="/admin/dashboard">Dashboard</a></li>
-            <li class="active">Kotak Saran</li>
-        </ol>
-
-        {% if (valid == 1): %}
-            <div class="table-responsive">
-                <table class="table table-condensed">
-                    <tr>
-                        <th>Nomor</th>
-                        <th>Nama</th>
-                        <th>Tanggal</th>
-                        <th>Email</th>
-                        <th>Isi Saran</th>
-                        <th>-</th>
-                    <tr>
-                    {% for i in range(count): %}
-                    <tr>
-                        <td>{{ i+1 }}</td>
-                        <td>{{ nameList[i] }}</td>
-                        <td>{{ datetimeList[i] }}</td>
-                        <td>{{ emailList[i] }}</td>
-                        <td>{{ contentList[i] }}</td>
-                        <td><a href="/admin/saran?deleteid={{ saranIDList[i] }}"><span class="glyphicon glyphicon-trash"></span>Delete</a></td>
                     </div>
-                    {% endfor %}
-                </table>
+                </div>
             </div>
-        {% else: %}
-            <script>
-                window.location = "/admin/login";
-            </script>
-        {% endif %}
+        </div>
     </div>
     
     <script language="javascript" type="text/javascript" src="/assets/js/jquery.min.js"></script>
