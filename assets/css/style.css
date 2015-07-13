@@ -19,6 +19,10 @@ body {
 
 /* Content */
 
+.font-size-note {
+    font-size: 10px;
+}
+
 .panel {
     background-color: #FFE4C4;
     padding: 15px;

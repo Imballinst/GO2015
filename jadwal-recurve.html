@@ -14,54 +14,173 @@
 	</title>
 </head>
 <body>
-	<nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="glyphicon glyphicon-th-list"></span>
-                </button>
-            </div><!-- /.navbar-header -->
-            
-            <div class="collapse navbar-collapse" id="navbar">
-                <ul class="nav navbar-nav navbar-left">
-                    <li><a href="/"><img class="brand" src="/assets/img/brand.png"></img></a></li>
-                    <li><a href="/registrasi"><span class="glyphicon glyphicon-file"></span>Registrasi</a></li>
-                    <li class="dropdown active">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-expanded="false"><span class="glyphicon glyphicon-time"></span>Jadwal Pertandingan<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/jadwal/nasional">Nasional</a></li>
-                            <li><a href="">Recurve</a></li>
-                            <li><a href="/jadwal/compound">Compound</a></li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-expanded="false"><span class="glyphicon glyphicon-blackboard"></span>Hasil Pertandingan<span class="caret"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="/hasil/nasional">Nasional</a></li>
-                            <li><a href="/hasil/recurve">Recurve</a></li>
-                            <li><a href="/hasil/compound">Compound</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="/tentang-kami"><span class="glyphicon glyphicon-info-sign"></span>Tentang Kami</a></li>
-                    <li><a href="/kontak"><span class="glyphicon glyphicon-comment"></span>Kontak Kami</a></li>
-                </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-    </nav>
+    <div id="header">
+    	<nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </button>
+                </div><!-- /.navbar-header -->
+                
+                <div class="collapse navbar-collapse" id="navbar">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a href="/"><img class="brand" src="/assets/img/brand.png"></img></a></li>
+                        <li><a href="/registrasi"><span class="glyphicon glyphicon-file"></span>Registrasi</a></li>
+                        <li class="dropdown active">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-expanded="false"><span class="glyphicon glyphicon-time"></span>Jadwal Pertandingan<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/jadwal/nasional">Nasional</a></li>
+                                <li><a href="">FITA Recurve</a></li>
+                                <li><a href="/jadwal/compound">Compound</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-expanded="false"><span class="glyphicon glyphicon-blackboard"></span>Hasil Pertandingan<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="/hasil/nasional">Nasional</a></li>
+                                <li><a href="/hasil/recurve">Recurve</a></li>
+                                <li><a href="/hasil/compound">Compound</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/tentang-kami"><span class="glyphicon glyphicon-info-sign"></span>Tentang Kami</a></li>
+                        <li><a href="/kontak"><span class="glyphicon glyphicon-comment"></span>Kontak Kami</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+    </div>
 	
-    <footer class="footer">
+    <div id="content">
         <div class="container">
-            <p class="text-muted text-center">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="text-center">Jadwal Ronde FITA Recurve</h2>
+
+                               <div class="table-responsive">
+                                  <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Tempat dan Tanggal</th>
+                                            <th>Pukul</th>
+                                            <th>Rundown</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="3"><strong>Kualifikasi Ronde FITA Recurve</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="4"><dfn>Siliwangi Indoor Tennis Court Bandung</dfn> - Kamis, 20 Agustus 2015</td>
+                                            <td>07.00 - 07.45 WIB</td>
+                                            <td>Official Practice</td>
+                                        </tr>
+                                        <tr>
+                                            <td>07.45 - 10.45 WIB</td>
+                                            <td>Kualifikasi Ronde FITA Recurve Kategori <strong>Pelajar (putra/putri)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>11.00 - 12.30 WIB</td>
+                                            <td>Kualifikasi Ronde FITA Recurve Kategori <strong>Mahasiswa (putra/putri)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>12.30 - 19.45 WIB</td>
+                                            <td class="text-muted">ISOMA dan Kualifikasi Ronde Compound</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3"><strong>Eliminasi Ronde FITA Recurve</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="14"><dfn>Siliwangi Indoor Tennis Court Bandung</dfn> - Jumat, 21 Agustus 2015</td>
+                                            <td>07.00 - 07.45 WIB</td>
+                                            <td>Official Practice</td>
+                                        </tr>
+                                        <tr>
+                                            <td>08.00 - 09.00 WIB</td>
+                                            <td>Eliminasi Ronde FITA Recurve Kategori <strong>Pelajar (putra/putri)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>09.00 - 10.00 WIB</td>
+                                            <td>Eliminasi Ronde FITA Recurve Kategori <strong>Mahasiswa (putra/putri)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10.00 - 11.00 WIB</td>
+                                            <td>Eliminasi Ronde FITA Recurve Kategori <strong>Mahasiswa (putra/putri)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>11.00 - 12.30 WIB</td>
+                                            <td>ISOMA</td>
+                                        </tr>
+                                        <tr>
+                                            <td>12.45 - 13.45 WIB</td>
+                                            <td>Eliminasi Ronde FITA Recurve Kategori <strong>Pelajar dan Mahasiswa (putra/putri)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>13.45 - 14.45 WIB</td>
+                                            <td>Eliminasi Ronde FITA Recurve Kategori <strong>Umum (putra/putri)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>14.45 - 15.45 WIB</td>
+                                            <td>Eliminasi Ronde FITA Recurve Kategori <strong>Pelajar dan Mahasiswa (putra/putri)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>15.45 - 16.45 WIB</td>
+                                            <td>Eliminasi Ronde FITA Recurve Kategori <strong>Umum (putra/putri)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>16.45 - 17.15 WIB</td>
+                                            <td>Istirahat shalat</td>
+                                        </tr>
+                                        <tr>
+                                            <td rowspan="3">17.30 - 18.30 WIB</td>
+                                            <td>Eliminasi Ronde FITA Recurve Kategori <strong>Pelajar dan Mahasiswa (putra/putri)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Eliminasi Ronde FITA Recurve Kategori <strong>Umum (putra/putri)</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Istirahat shalat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>18.30 - 19.00 WIB</td>
+                                            <td>Penyerahan Medali</td>
+                                        </tr>
+                                    </tbody>
+                                  </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <p class="text-muted font-size-note">*Rangkaian acara sewaktu-waktu dapat berubah menyesuaikan keadaan</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+      <div class="navbar navbar-fixed-bottom">
+        <div class="navbar-inner">
+          <div class="container">
+            <p class="text-center">
                 Ganesha Open 2015 - Unit Panahan Pasopati ITB <br>
                 <a href="https://www.facebook.com/GaneshaOpen2015"><i class="fa fa-facebook icon-margin"></i></a>
                 <a href="https://twitter.com/GO2015ITB"><i class="fa fa-twitter icon-margin"></i></a>
                 <a href="https://instagram.com/ganeshaopen2015/"><i class="fa fa-instagram icon-margin"></i></a>
             </p>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
     
 	<script language="javascript" type="text/javascript" src="/assets/js/jquery.min.js"></script>
 	<script language="javascript" type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
