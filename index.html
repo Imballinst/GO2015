@@ -27,7 +27,7 @@
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="nav navbar-nav navbar-left">
                         <li><a href="/" ><img class="brand" src="/assets/img/brand.png"></img></a></li>
-                        <li><a href="/registrasi" tabindex="0" id="notif" role="button" data-toggle="popover" data-placement="bottom" data-trigger="focus" title="Cara pendaftaran dan pembayaran <a class='a-btn-close float-right' onclick='closePopover()'><span class='glyphicon glyphicon-remove'></span></a>" data-content="Di halaman Registrasi sudah tersedia panduan pendaftaran dan pembayaran, yuk dilihat!"><span class="glyphicon glyphicon-file"></span>Registrasi</a></li>
+                        <li><a href="/registrasi"><span class="glyphicon glyphicon-file"></span>Registrasi</a></li>
                         <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-expanded="false"><span class="glyphicon glyphicon-time"></span>Jadwal Pertandingan<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
@@ -71,6 +71,17 @@
             <div class="row">
                 <div class="panel panel-default">
                     <div class="panel-body">
+                        <div class="col-md-12"><h2 class="text-center">Cara Pendaftaran dan Pembayaran</h2></div>
+                        <div class="col-md-12">
+                            <img class="img-content" src="/assets/img/cara-daftar.png">
+                            <img class="img-content" src="/assets/img/cara-bayar.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
                         <div class="col-md-12"><h2 class="text-center">Website Resmi Ganesha Open 2015</h2></div>
                         <div class="col-md-12"><p class="text">
                             <img class="img-content" src="/assets/img/poster.jpg"></img>
@@ -99,20 +110,7 @@
 
     <script language="javascript" type="text/javascript" src="/assets/js/jquery.min.js"></script>
 	<script language="javascript" type="text/javascript" src="/assets/js/bootstrap.min.js"></script>
-    <script>
-    $(document).ready(function(){
-        $('#notif').popover({
-            trigger: 'manual',
-            html: true,
-            container: 'body',
-        });
-        $('#notif').popover("show");
-    });
 
-    function closePopover() {
-        $('#notif').popover("hide");
-    }
-    </script>
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
