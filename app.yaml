@@ -33,9 +33,9 @@ handlers:
   static_dir: assets/js
 - url: /unduh
   static_dir: unduh
-- url: /favicon.ico
+- url: /favicon\.ico
   static_files: assets/img/favicon.ico
-  upload: assets/img/favicon.ico
+  upload: assets/img/favicon\.ico
 - url: /.*
   script: ganeshaopen15.application
 
