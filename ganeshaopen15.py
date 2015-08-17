@@ -16,6 +16,7 @@ from lib import HasilNasional
 from lib import HasilRecurve
 from lib import HasilCompound
 from lib import Kontak
+from lib import DataPeserta
 from lib import Post
 from lib import Down
 from lib import Tes
@@ -105,6 +106,7 @@ application = webapp2.WSGIApplication([
 	('/hasil/recurve', HasilRecurve.HasilRecurve),
 	('/hasil/compound', HasilCompound.HasilCompound),
 	('/kontak', Kontak.Kontak),
+    ('/data-peserta', DataPeserta.DataPeserta),
     ('/tes', Tes.Tes),
     ('/admin/dashboard', Admin.Admin),
     ('/admin/login', LoginController.LoginController),
