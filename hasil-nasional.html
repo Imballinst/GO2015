@@ -53,8 +53,51 @@
         </div><!-- /.container-fluid -->
     </nav>
     
-    <div class="container">
-        
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="form-group">
+                          <label for="sel1">Pilih kategori dan sesi:</label>
+                          <select class="form-control" id="opsi">
+                            <option value="/assets/img/hasil/nasional/p-pa-s1.jpg" selected="selected">Pelajar Putra Sesi 1</option>
+                            <option value="/assets/img/hasil/nasional/p-pa-s2.jpg">Pelajar Putra Sesi 2</option>
+                            <option value="/assets/img/hasil/nasional/p-pa-tot-indiv.jpg">Pelajar Putra Total Individu</option>
+                            <option value="/assets/img/hasil/nasional/p-pa-tot-regu.jpg">Pelajar Putra Total Regu</option>
+                            <option disabled>──────────</option>
+                            <option value="/assets/img/hasil/nasional/p-pi-s1.jpg">Pelajar Putri Sesi 1</option>
+                            <option value="/assets/img/hasil/nasional/p-pi-s2.jpg">Pelajar Putri Sesi 2</option>
+                            <option value="/assets/img/hasil/nasional/p-pi-tot-indiv.jpg">Pelajar Putri Total Individu</option>
+                            <option value="/assets/img/hasil/nasional/p-pi-tot-regu.png">Pelajar Putri Total Regu</option>
+                            <option disabled>──────────</option>
+                            <option value="/assets/img/hasil/nasional/m-pa-s1.png">Mahasiswa Putra Sesi 1</option>
+                            <option value="/assets/img/hasil/nasional/m-pa-s2.png">Mahasiswa Putra Sesi 2</option>
+                            <option value="/assets/img/hasil/nasional/m-pa-tot-indiv.png">Mahasiswa Putra Total Individu</option>
+                            <option value="/assets/img/hasil/nasional/m-pa-tot-regu.png">Mahasiswa Putra Total Regu</option>
+                            <option disabled>──────────</option>
+                            <option value="/assets/img/hasil/nasional/m-pi-s1.png">Mahasiswa Putri Sesi 1</option>
+                            <option value="/assets/img/hasil/nasional/m-pi-s2.png">Mahasiswa Putri Sesi 2</option>
+                            <option value="/assets/img/hasil/nasional/m-pi-tot-indiv.png">Mahasiswa Putri Total Individu</option>
+                            <option value="/assets/img/hasil/nasional/m-pi-tot-regu.png">Mahasiswa Putri Total Regu</option>
+                            <option disabled>──────────</option>
+                            <option value="/assets/img/hasil/nasional/u-pa-s1.png">Umum Putra Sesi 1</option>
+                            <option value="/assets/img/hasil/nasional/u-pa-s2.png">Umum Putra Sesi 2</option>
+                            <option value="/assets/img/hasil/nasional/u-pa-tot-indiv.png">Umum Putra Total Individu</option>
+                            <option value="/assets/img/hasil/nasional/u-pa-tot-regu.png">Umum Putra Total Regu</option>
+                            <option disabled>──────────</option>
+                            <option value="/assets/img/hasil/nasional/u-pi-s1.png">Umum Putri Sesi 1</option>
+                            <option value="/assets/img/hasil/nasional/u-pi-s2.png">Umum Putri Sesi 2</option>
+                            <option value="/assets/img/hasil/nasional/u-pi-tot-indiv.png">Umum Putri Total Individu</option>
+                            <option value="/assets/img/hasil/nasional/u-pi-tot-regu.png">Umum Putri Total Regu</option>
+                          </select>
+                        </div>
+
+                        <img src="/assets/img/hasil/nasional/p-pa-s1.jpg" name="image-swap">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     
     <footer class="footer">
@@ -79,6 +122,13 @@
       ga('create', 'UA-65040652-1', 'auto');
       ga('send', 'pageview');
 
+    </script>
+    <script>
+        $(document).ready(function(){
+           $("#opsi").change(function(){
+             $("img[name=image-swap]").attr("src",$(this).val());
+           });
+        });
     </script>
 </body>
 </html>
